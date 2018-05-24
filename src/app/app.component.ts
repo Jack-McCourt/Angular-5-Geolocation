@@ -15,7 +15,9 @@ export class AppComponent {
   constructor(private httpClient:HttpClient){  }
   
   getLatLng() {
-    this.httpClient.get('//www.mapquestapi.com/geocoding/v1/address?key=KFvAofpZxBngIkGTMFbntZG51telGnim&location='+encodeURI(this.location))
+    var locationString = encodeURI(this.location.replace(/[^\w\s]/gi, '')); //Strips special characters and formats string for URL.
+    
+    this.httpClient.get('//www.mapquestapi.com/geocoding/v1/address?key=KFvAofpZxBngIkGTMFbntZG51telGnim&location='+locationString)
     .subscribe(
       (data:any) => {
         if (data.results[0].locations[0].geocodeQuality === 'COUNTRY') { 
