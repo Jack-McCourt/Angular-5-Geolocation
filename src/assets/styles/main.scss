@@ -1,0 +1,56 @@
+body {
+    background: $background-color;
+    
+    h1 {
+        font-family: 'Signika', sans-serif;
+    }
+    
+    .alert-danger {
+        -webkit-animation-name: shake; 
+        animation-name: shake; 
+        
+        -webkit-animation-duration: 1s; 
+        animation-duration: 1s; 
+        -webkit-animation-fill-mode: both; 
+        animation-fill-mode: both; 
+    }
+    
+    form {
+        .form-control {
+            border:3px solid $secondary;
+        }
+        
+        .btn-primary {
+            background-color:$primary;
+            border:2px solid darken($primary, 10%);
+            
+            -webkit-transition: background-color 1s, border 1s;
+            transition: background-color 1s, border 1s;
+        
+            &:hover {
+                background-color:lighten($primary, 15%);  
+                border-color:$primary;
+            }
+        }
+    }
+    
+    .container {
+        background: #F9F9F5;
+        padding: 30px;
+    }
+    
+    
+    @media screen and (min-width:768px) {
+        .container {
+            max-width: 650px;
+            margin-top: 10%;
+        }
+    }
+    
+    @media screen and (min-width:1200px) {
+        .container {
+            max-width: 750px;
+            margin-top: 10%;
+        }
+    }
+}
